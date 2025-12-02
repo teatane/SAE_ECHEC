@@ -1,14 +1,12 @@
 package src.Piece;
-import java.util.LinkedHashMap;
-import java.util.List;
+import java.util.*;
 
 public interface IPiece {
 
     public String getPosition();
-    public void setPosition(String position);
-    public List<String> getMove(
-            LinkedHashMap<String, IPiece> board, IPiece piece
-    );
     public String getNom();
-
+    public String getColor();
+    public void setPosition(String position);
+    public List<String> getMove(Map<String, IPiece> board);
+    public boolean sameColor(String color);
 }

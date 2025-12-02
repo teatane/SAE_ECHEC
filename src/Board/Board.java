@@ -24,4 +24,21 @@ public class Board {
         board.put(position, piece);
     }
 
+    public List<String> mouvPossible(IPiece piece){
+
+        List<String> moves = piece.getMove(board);
+
+        for (Map.Entry<String, IPiece> entry : board.entrySet()){
+            if (moves.contains(entry.getKey())){ // si dans ma liste de position, j'ai la clé
+                if (entry.getValue() != null && entry.getValue().sameColor(piece.getColor())){ // si ma case n'est pas null et que la piece est de meme couleur
+                    moves.remove(entry.getKey()); // ce mouvement n'est donc pas possible
+                }
+            }
+        }
+
+        return moves;
+    }
+
+
+
 }

@@ -6,11 +6,13 @@ public class King implements IPiece{
 
     public String nom;
     public String position;
+    public String color;
 
 
-    public King(String position){
+    public King(String position, String color){
         this.nom = "king";
         this.position = position;
+        this.color = color;
     }
 
     @Override
@@ -24,28 +26,38 @@ public class King implements IPiece{
     }
 
     @Override
+    public String getColor(){
+        return color;
+    }
+
+    @Override
     public void setPosition(String position){
         this.position = position;
     }
 
+    @Override
+    public boolean sameColor(String color){
+        return this.color.equals(color);
+    }
+
 
     @Override
-    public List<String> getMove(LinkedHashMap<String, IPiece> board, IPiece piece) {
-        String pos = piece.getPosition();
-        char lettre = pos.charAt(0);  // colonne
-        char chiffre = pos.charAt(1); // ligne
+    public List<String> getMove(Map<String, IPiece> board) {
+        String pos = this.position;   // utiliser this, pas un paramètre externe
+        char lettre = pos.charAt(0);
+        char chiffre = pos.charAt(1);
         List<String> movePossible = new ArrayList<>();
 
-        // Les directions possibles pour le roi
-        int[] dx = {-1, 0, 1, -1, 1, -1, 0, 1}; // mouvements horizontaux
-        int[] dy = {-1, -1, -1, 0, 0, 1, 1, 1};  // mouvements verticaux
+        int[] dx = {-1, 0, 1, -1, 1, -1, 0, 1};
+        int[] dy = {-1,-1,-1,  0, 0, 1, 1, 1};
 
         for (int i = 0; i < dx.length; i++) {
-            char newLettre = (char) (lettre + dx[i]);
-            char newChiffre = (char) (chiffre + dy[i]);
+            char newLettre = (char)(lettre + dx[i]);
+            char newChiffre = (char)(chiffre + dy[i]);
 
-            // Vérifier si la position est dans les limites de l'échiquier
-            if (newLettre >= 'A' && newLettre <= 'H' && newChiffre >= '1' && newChiffre <= '8') {
+            if (newLettre >= 'A' && newLettre <= 'H' &&
+                    newChiffre >= '1' && newChiffre <= '8') {
+
                 String newPos = "" + newLettre + newChiffre;
                 movePossible.add(newPos);
             }
