@@ -7,13 +7,13 @@ public class Board {
     /**
      * Map<key = Case , valeur = IPiece>
      */
-    private Map<Case, IPiece> board = new LinkedHashMap<>();
+    private final Map<Case, IPiece> board = new LinkedHashMap<>();
 
 
     public Board() { // initialiser un board vide
         for (int i = 0; i < Case.taille; i++) { // taille horizontale
             for (int j = 1; j <= Case.taille; j++) { // taille verticale
-                board.put(new Case(Case.index[i],j),null);
+                board.put(new Case(Case.getIndex()[i],j),null);
             }
         }
     }

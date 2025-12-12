@@ -9,10 +9,10 @@ public class Case {
      * les enums quon va pouvoir utiliser pour la mise en place d1 board vide ou utliser les index
      */
     public static final int taille = 8;
-    public static final char[] index = {'A','B','C','D','E','F','G','H'};
+    private static final char[] index = {'A','B','C','D','E','F','G','H'};
 
-    private char X; //horizontal
-    private int Y; //vertical //
+    private final char X; //horizontal
+    private final int Y; //vertical //
 
     public Case(char X, int Y) {
         this.X = X;
@@ -25,6 +25,10 @@ public class Case {
 
     public int getY() {
         return Y;
+    }
+
+    public static char[] getIndex(){
+        return index.clone();
     }
 
     @Override
