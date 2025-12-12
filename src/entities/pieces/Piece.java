@@ -1,21 +1,22 @@
 package src.entities.pieces;
 
+import src.entities.jeu.Case;
 import src.entities.jeu.IPiece;
 
 public abstract class Piece implements IPiece {
 
-    public String nom;
-    public String position;
-    public String color;
+    private String nom;
+    private Case position;
+    private String color;
 
-    public Piece(String nom, String position, String color) {
+    public Piece(String nom, Case position, String color) {
         this.nom = nom;
         this.position = position;
         this.color = color;
     }
 
     @Override
-    public String getPosition(){
+    public Case getPosition(){
         return position;
     }
 
@@ -30,7 +31,7 @@ public abstract class Piece implements IPiece {
     }
 
     @Override
-    public void setPosition(String position){
+    public void setPosition(Case position){
         this.position = position;
     }
 

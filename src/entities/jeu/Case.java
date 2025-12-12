@@ -26,4 +26,9 @@ public class Case {
     public int getY() {
         return Y;
     }
+
+    @Override
+    public String toString() {
+        return "" + X + Y;   // pas necessaire et inutil pour linstant
+    }
 }
