@@ -1,6 +1,6 @@
-package src.Adaptator.Main;
+package src.adapters;
 
-import src.Entities.Board.Board;
+import src.entities.Board.Board;
 
 public class main {
     public static void main(String[] args) {

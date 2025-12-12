@@ -1,4 +1,4 @@
-package src.Entities.Board;
+package src.entities.Board;
 import java.util.*;
 
 public interface IPiece {

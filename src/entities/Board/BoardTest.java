@@ -1,4 +1,4 @@
-package src.Entities.Board;
+package src.entities.Board;
 
 //import static org.junit.jupiter.api.Assertions.*; //voir avec eclipse
 

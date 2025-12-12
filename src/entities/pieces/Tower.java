@@ -1,6 +1,6 @@
-package src.Entities.Piece;
+package src.entities.pieces;
 
-import src.Entities.Board.IPiece;
+import src.entities.Board.IPiece;
 
 import java.util.*;
 
