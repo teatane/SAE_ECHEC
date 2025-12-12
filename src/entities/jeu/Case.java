@@ -1,13 +1,12 @@
 package src.entities.jeu;
 
 /**
- * les new Case() sont seulement utilises dans board
+ * case quoi
  */
 
 public class Case {
     /**
-     * les enums quon va pouvoir utiliser pour la mise en place d1 board vide
-     *
+     * les enums quon va pouvoir utiliser pour la mise en place d1 board vide ou utliser les index
      */
     public static final int taille = 8;
     public static final char[] index = {'A','B','C','D','E','F','G','H'};
