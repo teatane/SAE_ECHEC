@@ -4,30 +4,30 @@ import java.util.*;
 
 public class Board {
 
-    private Map<String, IPiece> board = new LinkedHashMap<>();
+    /**
+     * Map<key = Case , valeur = IPiece>
+     */
+    private Map<Case, IPiece> board = new LinkedHashMap<>();
 
 
     public Board() { // initialiser un board vide
-        for (int i = 0; i < Case.getTaille(); i++) {
-            String tmp = Case.getIndex()[i];
-            for (int j = 1; j <= Case.getTaille(); j++) {
-                String indice = tmp + String.valueOf(j);
-                board.put(indice,null);
+        for (int i = 0; i < Case.taille; i++) { // taille horizontale
+            for (int j = 0; j < Case.taille; j++) { // taille verticale
+                board.put(new Case(Case.index[i],j),null);
             }
         }
     }
 
-    public Map<String, IPiece> getBoard() {
+    public Map<Case, IPiece> getBoard() {
         return board;
     } // return le board et son etat actuel
 
 
-    public void setPiece(String position, IPiece piece){
+    public void setPiece(Case position, IPiece piece){
         board.put(position, piece);
-    } // a la position, on remplace lancienne valeur par un nouveau qui pourrait etre null
-
+    }
     //à changer en cas ou le mode de jeu demande le nbr de piece capturee compte
-    public void removePiece(String position){ setPiece(position, null); }
+    public void removePiece(Case position){ setPiece(position, null); }
 
     public List<String> mouvPossible(IPiece piece){
 
