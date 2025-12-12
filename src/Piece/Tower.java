@@ -23,11 +23,11 @@ public class Tower extends Piece{
         for (char i = (char)(chiffre + 1); i <= '8'; i++) {
             String newPos = "" + lettre + i;
 
-            if (!board.containsKey(newPos)) {
+            if (!board.containsKey(newPos)) {  //contenir une piece? si ya rien alors case possible
                 movePossible.add(newPos);
             } else {
-                if(board.get(newPos).getColor().equals(this.getColor())){
-                    movePossible.add(newPos); // capture possible si c'est une piece de couleur differnt
+                if(!board.get(newPos).getColor().equals(this.getColor())){
+                    movePossible.add(newPos); // capture possible si c'est une piece de couleur different
                 }
                 break;                      // stoppe le rayon
             }
@@ -40,7 +40,7 @@ public class Tower extends Piece{
             if (!board.containsKey(newPos)) {
                 movePossible.add(newPos);
             } else {
-                if(board.get(newPos).getColor().equals(this.getColor())){
+                if(!board.get(newPos).getColor().equals(this.getColor())){
                     movePossible.add(newPos);
                 }
                 break;
@@ -54,7 +54,7 @@ public class Tower extends Piece{
             if (!board.containsKey(newPos)) {
                 movePossible.add(newPos);
             } else {
-                if(board.get(newPos).getColor().equals(this.getColor())){
+                if(!board.get(newPos).getColor().equals(this.getColor())){
                     movePossible.add(newPos);
                 }
                 break;
@@ -68,7 +68,7 @@ public class Tower extends Piece{
             if (!board.containsKey(newPos)) {
                 movePossible.add(newPos);
             } else {
-                if(board.get(newPos).getColor().equals(this.getColor())){
+                if(!board.get(newPos).getColor().equals(this.getColor())){
                     movePossible.add(newPos);
                 }
                 break;
