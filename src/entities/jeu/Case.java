@@ -20,11 +20,11 @@ public class Case {
         this.Y = Y;
     }
 
-    public int getX() {
+    public char getX() {
         return X;
     }
 
-    public char getY() {
+    public int getY() {
         return Y;
     }
 }
