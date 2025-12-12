@@ -1,4 +1,4 @@
-package src.entities.Board;
+package src.entities.jeu;
 import java.util.*;
 
 public interface IPiece {

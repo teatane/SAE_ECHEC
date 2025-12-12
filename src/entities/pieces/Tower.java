@@ -1,6 +1,6 @@
 package src.entities.pieces;
 
-import src.entities.Board.IPiece;
+import src.entities.jeu.IPiece;
 
 import java.util.*;
 

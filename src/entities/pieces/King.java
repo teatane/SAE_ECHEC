@@ -1,6 +1,6 @@
 package src.entities.pieces;
 
-import src.entities.Board.IPiece;
+import src.entities.jeu.IPiece;
 
 import java.util.*;
 
@@ -13,6 +13,7 @@ public class King extends Piece {
 
     @Override
     public List<String> getMove(Map<String, IPiece> board) {
+
         String pos = this.position;   // utiliser this, pas un paramètre externe
         char lettre = pos.charAt(0);
         char chiffre = pos.charAt(1);
