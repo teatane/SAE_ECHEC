@@ -21,7 +21,7 @@ public class Tower extends Piece {
         List<Case> movePossible = new ArrayList<>();
 
         // vertical haut
-        for (int i = chiffre + 1; i <= 8; i++) {
+        for (int i = chiffre + 1; i <= Case.taille; i++) {
 
             Case case_tmp = new Case(lettre,i);
 
@@ -47,7 +47,7 @@ public class Tower extends Piece {
         }
 
         // horizontal droit
-        for (char i = (char)(lettre + 1); i <= 'H'; i++) {
+        for (char i = (char)(lettre + 1); i <= Case.getIndex()[Case.getIndex().length-1]; i++) {
 
             Case case_tmp = new Case(i,chiffre);
 
@@ -60,7 +60,7 @@ public class Tower extends Piece {
         }
 
         // horizontal gauche
-        for (char i = (char)(lettre - 1); i >= 'A'; i--) {
+        for (char i = (char)(lettre - 1); i >= Case.getIndex()[0]; i--) {
 
             Case case_tmp = new Case(i,chiffre);
 

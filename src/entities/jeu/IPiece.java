@@ -6,6 +6,7 @@ public interface IPiece {
     Case getPosition();
     String getNom();
     String getColor();
+    String getColorOppose();
     void setPosition(Case position);
     List<Case> getMove(Map<Case, IPiece> board);
     boolean sameColor(String color);

@@ -22,29 +22,50 @@ public class Board {
         return board;
     } // return le board et son etat actuel
 
-
     public void setPiece(Case position, IPiece piece){
         board.put(position, piece);
     }
 
     public void removePiece(Case position){ setPiece(position, null); }
 
-
+// les moves
     public List<Case> mouvPossible(IPiece piece){
 
-        List<Case> moves = piece.getMove(board);
+        List<Case> movesPiece = piece.getMove(board);
+        List<Case> movesPossible = new LinkedList<>();
+        String couleurPiece = piece.getColor();
 
-        for (Map.Entry<Case, IPiece> entry : board.entrySet()){
-            if (moves.contains(entry.getKey())){ // si dans ma liste de position, j'ai la clé
-                if (entry.getValue() != null && entry.getValue().sameColor(piece.getColor())){ // si ma case n'est pas null et que la piece est de meme couleur
-                    moves.remove(entry.getKey()); // ce mouvement n'est donc pas possible
-                }
+        for (Case c : movesPiece){
+            if (board.get(c) == null || (board.get(c) != null && !board.get(c).sameColor(couleurPiece))){
+                movesPossible.add(c);
+            }
+        }
+        return movesPossible;
+    }
+
+    private List<Case> listMovesPieces(String color){ // utiliser seulement pour que le roi evite daller dans des zones qui pourrait etre jouer par lennemi
+        List<Case> moves = new LinkedList<>();
+
+        for (IPiece value : board.values()) {
+            if(value.getColor().equals(color)){
+                moves.addAll(this.mouvPossible(value));  //peut y avoir des doublons mais on sen fou
             }
         }
 
         return moves;
     }
 
+    public List<Case> MovesRoi(IPiece roi){ //appeler seulement quand c'est un deplacement dune piece roi
 
+        List<Case> movesPiece = this.mouvPossible(roi);
+        List<Case> movesPiecesEnnemie = this.listMovesPieces(roi.getColorOppose());
+        List<Case> movesPossible = new LinkedList<>();
 
+        for(Case c1 : movesPiece){
+            if(!movesPiecesEnnemie.contains(c1)){
+                movesPossible.add(c1);
+            }
+        }
+        return movesPossible;
+    }
 }

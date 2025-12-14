@@ -10,6 +10,9 @@ public abstract class Piece implements IPiece {
     private String color;
 
     public Piece(String nom, Case position, String color) {
+        assert color.equals("white") || color.equals("black") ;
+        assert nom.equals("rook") || nom.equals("king") ;
+
         this.nom = nom;
         this.position = position;
         this.color = color;
@@ -31,6 +34,14 @@ public abstract class Piece implements IPiece {
     }
 
     @Override
+    public String getColorOppose(){
+        if(color.equals("white")){
+            return "black";
+        }
+        return "white";
+    }
+
+    @Override
     public void setPosition(Case position){
         this.position = position;
     }
@@ -39,6 +50,8 @@ public abstract class Piece implements IPiece {
     public boolean sameColor(String color){
         return this.color.equals(color);
     }
+
+
 
 
 }

@@ -15,6 +15,8 @@ public class Case {
     private final int Y; //vertical //
 
     public Case(char X, int Y) {
+        assert X >= index[0] && X <= index[index.length - 1];
+        assert Y > 0 && Y <= taille;
         this.X = X;
         this.Y = Y;
     }
@@ -35,4 +37,6 @@ public class Case {
     public String toString() {
         return "" + X + Y;   // pas necessaire et inutil pour linstant
     }
+
+    public boolean sameCase(Case c){return c.getX() == this.getX() && c.getY() == this.getY();}
 }
