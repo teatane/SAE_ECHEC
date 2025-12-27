@@ -30,6 +30,15 @@ public class Board {
 
     public void removePiece(Case position){ setPiece(position, null); }
 
+    public void swapJoueur(){ // après avoir jouer un coup
+        if (tourJouer == 'w'){
+            tourJouer = 'b';
+        }
+        else if (tourJouer == 'b') {
+            tourJouer = 'w';
+        }
+    }
+
 // les moves
     public List<Case> mouvPossible(IPiece piece){
 
@@ -71,14 +80,6 @@ public class Board {
         return movesPossible;
     }
 
-    private void swapJoueur(){
-        if (tourJouer == 'w'){
-            tourJouer = 'b';
-        }
-        else if (tourJouer == 'b') {
-            tourJouer = 'w';
-        }
-    }
 
     public String fen(){
         StringBuilder fen = new StringBuilder();
