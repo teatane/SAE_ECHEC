@@ -1,4 +1,4 @@
-package src.test;
+package src.entities.test;
 
 import org.junit.Test;
 import src.entities.jeu.Case;

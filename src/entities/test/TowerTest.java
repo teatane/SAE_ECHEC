@@ -1,4 +1,4 @@
-package src.test;
+package src.entities.test;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -10,8 +10,6 @@ import src.entities.pieces.Tower;
 
 import java.util.List;
 import java.util.Random;
-
-import static org.junit.Assert.*;
 
 class TowerTest {
 

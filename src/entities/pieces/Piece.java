@@ -51,6 +51,29 @@ public abstract class Piece implements IPiece {
         return this.color.equals(color);
     }
 
+    @Override
+    public char caractereFEN(){
+        if (color.equals("white")){
+            if (nom.equals("rook")){
+                return 'r';
+            }
+            if (nom.equals("king")){
+                return 'k';
+            }
+        }
+        else if (color.equals("black")){
+            if (nom.equals("king")){
+                return 'K';
+            }
+            if (nom.equals("rook")){
+                return 'R';
+            }
+
+        }
+
+        return 0;
+    }
+
 
 
 

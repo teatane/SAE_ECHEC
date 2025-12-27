@@ -10,4 +10,5 @@ public interface IPiece {
     void setPosition(Case position);
     List<Case> getMove(Map<Case, IPiece> board);
     boolean sameColor(String color);
+    char caractereFEN();
 }
